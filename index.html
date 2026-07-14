@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="VQAU-Bench: a benchmark for vague-query-driven affective understanding in long videos." />
+  <title>VQAU-Bench</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <main id="top" class="page-shell">
+    <article class="content">
+      <section class="hero">
+        <p class="eyebrow">Dataset &amp; Benchmark</p>
+        <h1>VQAU-Bench</h1>
+        <div class="hero-actions">
+          <a class="button primary" href="https://arxiv.org/abs/2605.05640" target="_blank" rel="noopener">Paper</a>
+          <a class="button secondary" href="#access">Request Access</a>
+        </div>
+      </section>
+
+      <section id="overview" class="section-block">
+        <h2>Overview</h2>
+        <div class="overview-copy">
+          <p>
+            VQAU-Bench is designed for realistic affective understanding in long videos, where users often remember only a vague emotional impression rather than an exact timestamp or a predefined label. Given a full video and an open-ended query, a model must actively search for the relevant affective event instead of classifying a pre-selected clip.
+          </p>
+          <p>
+            The benchmark evaluates three tightly coupled capabilities: temporal localization of the target event, recognition of its dominant emotion, and generation of an explanation grounded in visual, acoustic, and contextual evidence. Each query is paired with an affective clip, temporal boundaries, an emotion category, and a verified reason explanation, allowing evaluation of whether a model finds the right moment, identifies the right emotion, and explains it with evidence.
+          </p>
+        </div>
+        <figure class="overview-figure">
+          <img src="assets/overview-workflow.png" alt="Overview of the VQAU-Bench construction pipeline across affective event temporal annotation, reason explanation annotation, query construction, and final dataset statistics." />
+        </figure>
+      </section>
+
+      <section id="dataset" class="section-block">
+        <h2>Dataset</h2>
+        <p>
+          The benchmark contains long videos, affective event clips, personalized vague retrieval queries, temporal boundaries, emotion labels, and verified reason explanations.
+        </p>
+        <div class="stats-strip" aria-label="Dataset statistics">
+          <div class="strip-stat"><strong>2,976</strong><span>Full Videos</span></div>
+          <div class="strip-stat"><strong>16,292</strong><span>Affective Clips</span></div>
+          <div class="strip-stat"><strong>48,876</strong><span>Query–Clip Pairs</span></div>
+          <div class="strip-stat"><strong>13</strong><span>Emotion Categories</span></div>
+        </div>
+      </section>
+
+      <section id="annotations" class="section-block">
+        <h2>Annotations</h2>
+        <p>
+          Each query–clip pair contains a temporal window, a personalized vague query, an emotion label, and a verified evidence-grounded summary. The released records also retain video and processing identifiers for reproducible evaluation.
+        </p>
+
+        <div class="annotation-schema" aria-label="Annotation fields">
+          <span><strong>Temporal Window</strong><small>start / end timestamps</small></span>
+          <span><strong>Query</strong><small>vague affective memory</small></span>
+          <span><strong>Emotion</strong><small>dominant category</small></span>
+          <span><strong>Summary</strong><small>multimodal rationale</small></span>
+        </div>
+
+        <div class="examples-heading-row">
+          <h3 class="examples-title">Example Annotations</h3>
+          <button
+            class="examples-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="more-annotation-examples"
+            data-expand-label="Show more examples"
+            data-collapse-label="Hide extra examples"
+          >
+            <span class="toggle-label">Show more examples</span>
+            <span class="toggle-count">2</span>
+            <span class="toggle-chevron" aria-hidden="true">⌄</span>
+          </button>
+        </div>
+
+        <div class="annotation-examples">
+          <article class="annotation-example">
+            <div class="example-meta">
+              <span class="example-id">1001_1001_00000510_Q1</span>
+              <span class="time-badge">20.40–49.32 s</span>
+              <span class="emotion-badge">Neutral</span>
+            </div>
+            <div class="example-content">
+              <div class="example-query">
+                <h4>Query</h4>
+                <p>“I kinda remember his fingers moving steadily across the keys on that black piano—felt just right.”</p>
+              </div>
+              <div class="example-summary">
+                <h4>Summary</h4>
+                <p>The segment aligns with the query through a continuous side-profile shot of a pianist’s fingers moving rhythmically across black keys. The steady melody, subtle nodding, static camera, and restrained presentation emphasize mechanical precision rather than dramatic expression, resulting in a Neutral emotional tone.</p>
+              </div>
+            </div>
+          </article>
+
+          <div id="more-annotation-examples" class="extra-examples" hidden>
+            <article class="annotation-example">
+              <div class="example-meta">
+                <span class="example-id">1024_1024_00000000_Q1</span>
+                <span class="time-badge">0.00–20.00 s</span>
+                <span class="emotion-badge">Angry</span>
+              </div>
+              <div class="example-content">
+                <div class="example-query">
+                  <h4>Query</h4>
+                  <p>“I kinda remember a bloody neck wound on a man in a light shirt as he steps into a dark puddle—so fed up.”</p>
+                </div>
+                <div class="example-summary">
+                  <h4>Summary</h4>
+                  <p>A man in a blood-stained light shirt with a visible neck wound stands near wooden pillars and wall scrolls. His low, hoarse speech, the slow cuts, low-frequency beat, high-contrast lighting, and deliberate step into a dark puddle collectively convey confrontation, defiance, and intense anger.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="annotation-example">
+              <div class="example-meta">
+                <span class="example-id">1024_1024_00001698_Q1</span>
+                <span class="time-badge">67.92–82.20 s</span>
+                <span class="emotion-badge">Joy</span>
+              </div>
+              <div class="example-content">
+                <div class="example-query">
+                  <h4>Query</h4>
+                  <p>“I kinda remember a firm handshake on a coastal walkway right before the music swells—felt so light.”</p>
+                </div>
+                <div class="example-summary">
+                  <h4>Summary</h4>
+                  <p>The clip begins with a firm handshake on a coastal walkway and transitions into rapid cuts of soldiers, green hills, red flags, and a cheering crowd. Swelling orchestral music, driving drums, vivid color, and synchronized collective action create a strong sense of momentum, achievement, and Joy.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <p class="label-line">
+          <strong>Emotion categories:</strong> Anger, Anticipation, Disgust, Fear, Horror, Joy, Love, Neutral, Pride, Sadness, Satisfaction, Surprise, and Trust.
+        </p>
+      </section>
+
+      <section id="access" class="section-block">
+        <h2>Access &amp; License</h2>
+        <p>
+          VQAU-Bench is available for approved academic research, teaching, non-commercial evaluation, and paper reproduction. Download, complete, and sign the agreement, then email it to the contacts below.
+        </p>
+        <a class="download-card" href="assets/VQAU-Bench_Dataset_Use_License_Agreement_EN.docx" download>
+          <span class="download-icon" aria-hidden="true">↓</span>
+          <span class="download-copy">
+            <strong>Dataset Use License Agreement</strong>
+            <small>VQAU-Bench_Dataset_Use_License_Agreement_EN.docx</small>
+          </span>
+        </a>
+        <p class="notice">The agreement should be signed by the responsible person, supervisor, or project leader.</p>
+      </section>
+
+      <section id="contact" class="section-block">
+        <h2>Contact</h2>
+        <p class="contact-intro">For any inquiries about the VQAU-Bench dataset, please contact:</p>
+        <p class="contact-email"><a href="mailto:3220251506@bit.com">3220251506@bit.com</a></p>
+      </section>
+
+      <section id="citation" class="section-block citation-section">
+        <h2>Citation</h2>
+        <div class="code-wrap">
+          <button class="copy-button" type="button" data-copy-target="citation-code">Copy</button>
+          <pre id="citation-code"><code>@article{zhang2026affectseek,
+  title   = {AffectSeek: Agentic Affective Understanding in Long Videos under Vague User Queries},
+  author  = {Zhang, Zhen and Yang, Yuhang and Jiang, Yunxiang and Lu, Yuhuan and Lu, Haifeng and Lian, Zheng and Zeng, Runhao and Hu, Xiping},
+  journal = {arXiv preprint arXiv:2605.05640},
+  year    = {2026}
+}</code></pre>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>VQAU-Bench · Vague-Query-driven Video Affective Understanding</p>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

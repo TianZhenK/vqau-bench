@@ -566,3 +566,12 @@ pre {
   background: #24292f;
   color: white;
 }
+
+.github-button i {
+  margin-right: 8px;
+  font-size: 1.1em;
+}
+
+.hero-actions .github-button:hover {
+  background: #000000;
+}

@@ -561,3 +561,8 @@ pre {
     justify-content: center;
   }
 }
+
+.hero-actions .github-button {
+  background: #24292f;
+  color: white;
+}
